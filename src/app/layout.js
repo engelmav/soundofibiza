@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Rent Mackie Thump Speakers',
+  title: 'Rent Party Speakers',
   description: 'Rent 2 mackie thump speakers with subwoofer',
 };
 

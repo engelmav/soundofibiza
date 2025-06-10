@@ -15,10 +15,13 @@ export default function HomePage() {
         priority
       />
       <p>2 x Mackie Thump Speakers with Subwoofer</p>
-      <p className="free-stands">Speaker stands included free of charge</p>
+      <p className="free-stands">Speaker stands included for free!</p>
       <p className="price" style={{ fontSize: '2rem', fontWeight: 'bold' }}>$59/night</p>
       <DailyRandomizer />
       <RentalForm />
+      <p style={{ textAlign: 'center', color: '#666', fontSize: '0.9rem', marginTop: '2rem' }}>
+        Based out of North Plainfield, NJ
+      </p>
     </div>
   );
 } 

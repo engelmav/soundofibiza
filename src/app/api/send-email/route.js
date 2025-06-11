@@ -13,7 +13,7 @@ export async function POST(request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Sound of Ibiza <rentals@soundofibiza.com>', // Change this to your "from" address
-      to: [email], // Change this to your "to" address
+      to: ['vincent.engelmann1@gmail.com'],
       subject: 'New Speaker Rental Request',
       html: `
         <h1>New Rental Request</h1>

@@ -14,7 +14,7 @@ export default function HomePage() {
         className="speaker-image"
         priority
       />
-      <p>2 x Mackie Thump Speakers with Subwoofer</p>
+      <p>2 x Mackie Thump Speakers</p>
       <p className="free-stands">Speaker stands included for free!</p>
       <p className="price" style={{ fontSize: '2rem', fontWeight: 'bold' }}>$59/night</p>
       <DailyRandomizer />

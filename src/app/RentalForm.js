@@ -6,6 +6,10 @@ export default function RentalForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
+  const [selectedItems, setSelectedItems] = useState({
+    speakers: false,
+    tent: false
+  });
   const [message, setMessage] = useState({ text: '', type: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -14,6 +18,27 @@ export default function RentalForm() {
     setTimeout(() => {
       setMessage({ text: '', type: '' });
     }, 5000);
+  };
+
+  const handleItemChange = (item) => {
+    setSelectedItems(prev => ({
+      ...prev,
+      [item]: !prev[item]
+    }));
+  };
+
+  const getSelectedItemsText = () => {
+    const items = [];
+    if (selectedItems.speakers) items.push('Party Speakers ($89/night)');
+    if (selectedItems.tent) items.push('Party Tent ($129/night)');
+    return items.join(' + ');
+  };
+
+  const getTotalPrice = () => {
+    let total = 0;
+    if (selectedItems.speakers) total += 89;
+    if (selectedItems.tent) total += 129;
+    return total;
   };
 
   const handleSubmit = async (event) => {
@@ -26,20 +51,36 @@ export default function RentalForm() {
       return;
     }
 
+    if (!selectedItems.speakers && !selectedItems.tent) {
+      showMessage('Please select at least one item to rent.', 'error');
+      setIsSubmitting(false);
+      return;
+    }
+
+    const itemsText = getSelectedItemsText();
+    const totalPrice = getTotalPrice();
+
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, date }),
+        body: JSON.stringify({ 
+          name, 
+          email, 
+          date, 
+          item: itemsText,
+          totalPrice: totalPrice
+        }),
       });
 
       if (response.ok) {
-        showMessage(`Thank you, ${name}! Your rental request for ${date} has been received. We will contact you at ${email} shortly.`, 'success');
+        showMessage(`Thank you, ${name}! Your rental request for ${itemsText} on ${date} (Total: $${totalPrice}/night) has been received. We will contact you at ${email} shortly.`, 'success');
         setName('');
         setEmail('');
         setDate('');
+        setSelectedItems({ speakers: false, tent: false });
       } else {
         const result = await response.json();
         showMessage(result.error || 'An error occurred. Please try again.', 'error');
@@ -55,6 +96,42 @@ export default function RentalForm() {
   return (
     <>
       <form id="rental-form" onSubmit={handleSubmit}>
+        <fieldset className="item-selection">
+          <legend>Select Items to Rent:</legend>
+          
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              id="speakers"
+              checked={selectedItems.speakers}
+              onChange={() => handleItemChange('speakers')}
+            />
+            <label htmlFor="speakers" className="checkbox-label">
+              Party Speakers - $89/night
+              <span className="item-details">2 x Mackie Thump Speakers (stands included)</span>
+            </label>
+          </div>
+
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              id="tent"
+              checked={selectedItems.tent}
+              onChange={() => handleItemChange('tent')}
+            />
+            <label htmlFor="tent" className="checkbox-label">
+              Party Tent - $129/night
+              <span className="item-details">10ft by 8ft, suitable for up to 3 tables</span>
+            </label>
+          </div>
+
+          {(selectedItems.speakers || selectedItems.tent) && (
+            <div className="total-price">
+              Total: ${getTotalPrice()}/night
+            </div>
+          )}
+        </fieldset>
+
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -64,6 +141,7 @@ export default function RentalForm() {
           onChange={(e) => setName(e.target.value)}
           required
         />
+        
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -73,6 +151,7 @@ export default function RentalForm() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+        
         <label htmlFor="date">Rental Date:</label>
         <input
           type="date"
@@ -82,6 +161,7 @@ export default function RentalForm() {
           onChange={(e) => setDate(e.target.value)}
           required
         />
+        
         <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Submitting...' : 'Submit Rental Request'}
         </button>

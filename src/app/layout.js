@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Rent Party Speakers',
-  description: 'Rent 2 mackie thump speakers with subwoofer',
+  title: 'Rent Party Equipment - Sound of Ibiza',
+  description: 'Rent party speakers and tents for your next event',
 };
 
 export default function RootLayout({ children }) {

@@ -29,7 +29,7 @@ export default function RentalForm() {
 
   const getSelectedItemsText = () => {
     const items = [];
-    if (selectedItems.speakers) items.push('Party Speakers ($89/night)');
+    if (selectedItems.speakers) items.push('Party Speakers w/ Bluetooth ($89/night)');
     if (selectedItems.tent) items.push('Party Tent ($129/night)');
     return items.join(' + ');
   };
@@ -108,7 +108,7 @@ export default function RentalForm() {
             />
             <label htmlFor="speakers" className="checkbox-label">
               Party Speakers - $89/night
-              <span className="item-details">2 x Mackie Thump Speakers (stands included)</span>
+              <span className="item-details">2 x Mackie Thump Speakers w/ Bluetooth (stands included)</span>
             </label>
           </div>
 

@@ -6,7 +6,7 @@ import TentInventory from './TentInventory';
 export default function HomePage() {
   return (
     <div className="container">
-      <h1>Party Equipment for Rent</h1>
+      <h1>Party Speakers for Rent</h1>
       
       {/* Speakers Section */}
       <div className="rental-item">
@@ -19,7 +19,7 @@ export default function HomePage() {
           priority
         />
         <h2>Party Speakers</h2>
-        <p>2x Mackie Thump Speakers</p>
+        <p>2x Mackie Thump Speakers w/ Bluetooth</p>
         <p className="free-stands">Speaker stands included for free!</p>
         <p className="price">$89/night</p>
         <DailyRandomizer />

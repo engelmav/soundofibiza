@@ -16,8 +16,7 @@ export default function HomePage() {
         priority
       />
       <p>2 x Mackie Thump Speakers</p>
-      <p className="free-stands">Speaker stands included for free!</p>
-      <p className="free-mic">Microphone included for free!</p>
+      <p className="free-items">Speaker stands and microphone included for free!</p>
       <p className="price" style={{ fontSize: '2rem', fontWeight: 'bold' }}>$59/night</p>
       <DailyRandomizer />
       <RentalForm />

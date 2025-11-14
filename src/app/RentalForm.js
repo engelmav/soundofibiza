@@ -36,6 +36,14 @@ export default function RentalForm() {
       });
 
       if (response.ok) {
+        // Track conversion
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-347513819/_b9ECNC62L8bENvH2qUB',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
         showMessage(`Thank you, ${name}! Your rental request for ${date} has been received. We will contact you at ${email} shortly.`, 'success');
         setName('');
         setEmail('');

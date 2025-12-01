@@ -2,14 +2,17 @@ import './globals.css';
 import Script from 'next/script';
 
 export const metadata = {
-  title: 'Rent Party Speakers',
-  description: 'Rent 2 mackie thump speakers with subwoofer',
+  title: 'Premium Event Sound Rental',
+  description: 'Professional Mackie Thump speaker system for weddings, corporate events, and launch parties',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&display=swap" rel="stylesheet" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T3Z6H11NJ6"
           strategy="afterInteractive"

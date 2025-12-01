@@ -5,8 +5,8 @@ import DailyRandomizer from './DailyRandomizer';
 export default function HomePage() {
   return (
     <div className="container">
-      <h1>Party Speakers for Rent</h1>
-      <h2 className="subtitle">We bring the club to your house.</h2>
+      <h1>Premium Sound for Your Event</h1>
+      <h2 className="subtitle">Weddings • Corporate Events • Launch Parties</h2>
       <Image
         src="/THUMP210-210XT_3qtrR.png"
         alt="Mackie Thump Speakers on stands"
@@ -15,13 +15,13 @@ export default function HomePage() {
         className="speaker-image"
         priority
       />
-      <p>2 x Mackie Thump Speakers</p>
-      <p className="free-items">Speaker stands and microphone included for free!</p>
-      <p className="price" style={{ fontSize: '2rem', fontWeight: 'bold' }}>$59/night</p>
+      <p>High Quality, Pro Audio Systems</p>
+      <p className="free-items">Complimentary delivery & setup</p>
+      <p className="price" style={{ fontSize: '2rem', fontWeight: '300', letterSpacing: '1px' }}>starting at $199 per night</p>
       <DailyRandomizer />
       <RentalForm />
-      <p style={{ textAlign: 'center', color: '#666', fontSize: '0.9rem', marginTop: '2rem' }}>
-        Based out of North Plainfield, NJ
+      <p style={{ textAlign: 'center', color: '#b0b0b0', fontSize: '0.9rem', marginTop: '2rem', fontStyle: 'italic' }}>
+        Serving North Plainfield, NJ & surrounding areas
       </p>
     </div>
   );

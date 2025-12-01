@@ -1,30 +1,40 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Playfair Display', 'Georgia', serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #1a1a1a;
     margin: 0;
 }
 
 .container {
-    background: white;
+    background: #2d2d2d;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     width: 100%;
     max-width: 400px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #e0e0e0;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+h2 {
+    text-align: center;
+    color: #b0b0b0;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
 
 p {
     text-align: center;
-    color: #666;
+    color: #b0b0b0;
     margin-bottom: 2rem;
 }
 
@@ -39,7 +49,7 @@ p {
 
 .free-stands {
     text-align: center;
-    color: #28a745;
+    color: #4ade80;
     font-weight: bold;
     margin-top: -1rem;
     margin-bottom: 2rem;
@@ -52,22 +62,24 @@ form {
 
 label {
     margin-bottom: 0.5rem;
-    color: #555;
+    color: #b0b0b0;
 }
 
 input {
     padding: 0.8rem;
     margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 4px;
     font-size: 1rem;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
 }
 
 button {
     padding: 0.8rem;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
+    background-color: #3b82f6;
     color: white;
     font-size: 1rem;
     cursor: pointer;
@@ -75,7 +87,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2563eb;
 }
 
 #response-message {
@@ -97,13 +109,13 @@ button:hover {
 }
 
 .success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background-color: #166534;
+    color: #86efac;
+    border: 1px solid #22c55e;
 }
 
 .error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+    background-color: #7f1d1d;
+    color: #fca5a5;
+    border: 1px solid #ef4444;
 } 

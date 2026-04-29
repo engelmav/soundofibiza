@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function RentalForm() {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
@@ -44,10 +46,7 @@ export default function RentalForm() {
             'currency': 'USD'
           });
         }
-        showMessage(`Thank you, ${name}! Your rental request for ${date} has been received. We will contact you at ${email} shortly.`, 'success');
-        setName('');
-        setEmail('');
-        setDate('');
+        router.push('/thank-you');
       } else {
         const result = await response.json();
         showMessage(result.error || 'An error occurred. Please try again.', 'error');

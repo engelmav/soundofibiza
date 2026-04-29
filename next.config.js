@@ -4,9 +4,9 @@ const nextConfig = {
     return {
       beforeFiles: [
         {
-          source: '/:path((?!_next|api|favicon\\.ico|ballroom-logo\\.webp|THUMP210).*)*',
+          source: '/',
           has: [{ type: 'host', value: 'balloonpalace.soundofibiza.com' }],
-          destination: '/balloon-palace/:path*',
+          destination: '/balloon-palace',
         },
       ],
     };

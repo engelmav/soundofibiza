@@ -1,7 +1,9 @@
+import { SITE_ORIGIN } from '../lib/business';
+
 export default function sitemap() {
   return [
     {
-      url: 'https://soundofibiza.com/',
+      url: `${SITE_ORIGIN}/`,
       changeFrequency: 'monthly',
       priority: 1.0,
     },

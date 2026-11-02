@@ -1,8 +1,9 @@
 import './globals.css';
 import Script from 'next/script';
+import { SITE_ORIGIN, homepageJsonLd } from '../lib/business';
 
 export const metadata = {
-  metadataBase: new URL('https://soundofibiza.com'),
+  metadataBase: new URL(SITE_ORIGIN),
   title: 'Sound of Ibiza — Professional Audio Rentals, Setup, Delivery & Tuning',
   description: 'Nightclub-grade audio systems for professional events. Rentals, setup, delivery, and expert tuning—engineered for impact.',
   alternates: {
@@ -21,7 +22,7 @@ export const metadata = {
     siteName: 'Sound of Ibiza',
     title: 'Sound of Ibiza — Professional Audio Rentals, Setup, Delivery & Tuning',
     description: 'Nightclub-grade audio systems for professional events. Rentals, setup, delivery, and expert tuning—engineered for impact.',
-    url: 'https://soundofibiza.com/',
+    url: 'https://www.soundofibiza.com/',
     images: [
       {
         url: '/THUMP210-210XT_3qtrR.png',
@@ -37,25 +38,7 @@ export const metadata = {
   },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: 'Professional audio system rental, setup, delivery, and tuning',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'Sound of Ibiza',
-    url: 'https://soundofibiza.com/',
-    image: 'https://soundofibiza.com/THUMP210-210XT_3qtrR.png',
-    priceRange: '$$',
-  },
-  areaServed: [
-    { '@type': 'AdministrativeArea', name: 'Somerset County, NJ' },
-    { '@type': 'City', name: 'Westfield, NJ' },
-    { '@type': 'City', name: 'Morristown, NJ' },
-    { '@type': 'City', name: 'Bridgewater, NJ' },
-    { '@type': 'City', name: 'Brooklyn, NY' },
-  ],
-};
+const jsonLd = homepageJsonLd();
 
 export default function RootLayout({ children }) {
   return (
